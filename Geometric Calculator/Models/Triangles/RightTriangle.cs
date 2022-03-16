@@ -15,6 +15,15 @@
             this._firstAngle = firstAngle * Math.PI / 180;
             this._secondAngle = secondAngle * Math.PI / 180;
             this._thirdAngle = 90 * Math.PI / 180;
+
+            GetThirdSideWithPythagoreanTheorem();
+        }
+
+        private void GetThirdSideWithPythagoreanTheorem()
+        {
+            if (this._firstSide != 0 && this._secondSide != 0 && this._thirdSide == 0) this._thirdSide = Math.Sqrt(Math.Pow(this._firstSide, 2) + Math.Pow(this._secondSide, 2));
+            else if (this._firstSide != 0 && this._secondSide == 0 && this._thirdSide != 0) this._secondSide = Math.Sqrt(Math.Pow(this._thirdSide, 2) - Math.Pow(this._firstSide, 2));
+            else if (this._firstSide == 0 && this._secondSide != 0 && this._thirdSide != 0) this._secondSide = Math.Sqrt(Math.Pow(this._thirdSide, 2) - Math.Pow(this._secondSide, 2));
         }
     }
 }
