@@ -1,0 +1,31 @@
+﻿@page
+@model Geometric_Calculator.Pages.Triangles.TrueTriangleModel
+@{
+    ViewData["Title"] = "True Triangle";
+}
+
+<div class="text-center">
+    <form method="post">
+        <tr>
+            <td>Side: </td>
+            <td><input type="text" value="0" name="Side" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Height "a": </td>
+            <td><input type="text" value="0" name="HeightA" /></td>
+            <td>Height "b": </td>
+            <td><input type="text" value="0" name="HeightB" /></td>
+            <td>Height "c": </td>
+            <td><input type="text" value="0" name="HeightC" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Angles</td>
+            <td><b>ALWAYS 60 DEGREES</b></td>
+        </tr>
+        <br />
+        <input type="submit" value="Get area" />
+    </form>
+    <p>@Model.Message</p>
+</div>
