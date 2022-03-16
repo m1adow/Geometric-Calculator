@@ -2,34 +2,34 @@
 {
     public class Triangle
     {
-        private double _firstSide;
-        private double _secondSide;
-        private double _thirdSide;
+        protected double _firstSide;
+        protected double _secondSide;
+        protected double _thirdSide;
 
-        private double _firstHeight;
-        private double _secondHeight;
-        private double _thirdHeight;
+        protected double _firstHeight;
+        protected double _secondHeight;
+        protected double _thirdHeight;
 
-        private byte _firstAngle;
-        private byte _secondAngle;
-        private byte _thirdAngle;
+        protected double _firstAngle;
+        protected double _secondAngle;
+        protected double _thirdAngle;
 
-        public double Area { get; private set; }
-
-        public Triangle(double firstSide = 0, double secondSide = 0, double thirdSide = 0, byte firstAngle = 0, byte secondAngle = 0, byte thirdAngle = 0)
+        public Triangle(double firstSide = 0, double secondSide = 0, double thirdSide = 0, double firstHeight = 0, double secondHeight = 0, double thirdHeight = 0, byte firstAngle = 0, byte secondAngle = 0, byte thirdAngle = 0)
         {
             _firstSide = firstSide;
             _secondSide = secondSide;
             _thirdSide = thirdSide;
 
-            _firstAngle = firstAngle;
-            _secondAngle = secondAngle;
-            _thirdAngle = thirdAngle;
+            _firstHeight = firstHeight;
+            _secondHeight = secondHeight;
+            _thirdHeight = thirdHeight;
 
-            Area = GetArea();
+            _firstAngle = firstAngle * Math.PI / 180;
+            _secondAngle = secondAngle * Math.PI / 180;
+            _thirdAngle = thirdAngle * Math.PI / 180;
         }
 
-        private double GetArea()
+        public double GetArea()
         {
             if (GetAreaWithSinFormula() != 0) return GetAreaWithSinFormula();
             else if (GetAreaWithGeronFormula() != 0) return GetAreaWithGeronFormula();

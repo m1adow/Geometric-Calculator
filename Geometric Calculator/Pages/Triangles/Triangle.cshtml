@@ -1,0 +1,40 @@
+﻿@page
+@model Geometric_Calculator.Pages.TriangleModel
+@{
+    ViewData["Title"] = "Triangle";
+}
+
+<div class="text-center">
+    <form method="post">
+        <p>Sides</p>
+        <tr>
+            <td>Side "a": </td>
+            <td><input type="text" value="0" name="SideA" /></td>
+            <td>Height "a": </td>
+            <td><input type="text" value="0" name="HeightA" /></td>
+            <td>Angle "a": </td>
+            <td><input type="text" value="0" name="AngleA" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Side "b": </td>
+            <td><input type="text" value="0" name="SideB" /></td>
+            <td>Height "b": </td>
+            <td><input type="text" value="0" name="HeightB" /></td>
+            <td>Angle "b": </td>
+            <td><input type="text" value="0" name="AngleB" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Side "c": </td>
+            <td><input type="text" value="0" name="SideC" /></td>
+            <td>Height "c": </td>
+            <td><input type="text" value="0" name="HeightC" /></td>
+            <td>Angle "c": </td>
+            <td><input type="text" value="0" name="AngleC" /></td>
+        </tr>
+        <br />
+        <input type="submit" value="Get area" />
+    </form>
+    <p>@Model.Message</p>
+</div>
