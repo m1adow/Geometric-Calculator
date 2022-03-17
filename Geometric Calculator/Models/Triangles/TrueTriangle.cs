@@ -1,20 +1,13 @@
-﻿namespace Geometric_Calculator.Models.Triangles
+﻿using Geometric_Calculator.Models.Components;
+
+namespace Geometric_Calculator.Models.Triangles;
+
+public class TrueTriangle : Triangle
 {
-    public class TrueTriangle : Triangle
+    public TrueTriangle(double side = 0, double firstHeight = 0, double secondHeight = 0, double thirdHeight = 0)
     {
-        public TrueTriangle(double side = 0, double firstHeight = 0, double secondHeight = 0, double thirdHeight = 0)
-        {
-            this._firstSide = side;
-            this._secondSide = side;
-            this._thirdSide = side;
-
-            this._firstHeight = firstHeight;
-            this._secondHeight = secondHeight;
-            this._thirdHeight = thirdHeight;
-
-            this._firstAngle = Angle.ConvertDegreesToRadians(60);
-            this._secondAngle = this._firstAngle;
-            this._thirdAngle = this._secondAngle;
-        }
+        this._sides = new Side[3] { new Side(side), new Side(side), new Side(side) }; //initiate array with equal sides
+        this._angles = new Angle[3] { new Angle(0, 60), new Angle(0, 60), new Angle(0, 60) }; //initiate array with angles in degrees which equal 60
+        this._heights = new Height[3] { new Height(firstHeight), new Height(secondHeight), new Height(thirdHeight) }; //initiate array with heights
     }
 }

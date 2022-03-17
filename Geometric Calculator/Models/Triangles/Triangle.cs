@@ -1,67 +1,57 @@
-﻿namespace Geometric_Calculator.Models.Triangles
+﻿using Geometric_Calculator.Models.Components;
+
+namespace Geometric_Calculator.Models.Triangles;
+
+public class Triangle
 {
-    public class Triangle
+    protected Side[] _sides;
+    protected Angle[] _angles;
+    protected Height[] _heights;
+
+    public Triangle(double firstSide = 0, double secondSide = 0, double thirdSide = 0, double firstHeight = 0, double secondHeight = 0, double thirdHeight = 0, byte firstAngle = 0, byte secondAngle = 0, byte thirdAngle = 0)
     {
-        protected double _firstSide;
-        protected double _secondSide;
-        protected double _thirdSide;
+        _sides = new Side[3] { new Side(firstSide), new Side(secondSide), new Side(thirdSide) }; //initiate array with sides
+        _angles = new Angle[3] { new Angle(0, firstAngle), new Angle(0, secondAngle), new Angle(0, thirdAngle) }; //initiate array with angles in degrees
+        _heights = new Height[3] { new Height(firstHeight), new Height(secondHeight), new Height(thirdHeight) }; //initiate array with heights
+    }
 
-        protected double _firstHeight;
-        protected double _secondHeight;
-        protected double _thirdHeight;
+    public double GetArea()
+    {
+        if (GetAreaWithSinFormula() != 0) return GetAreaWithSinFormula();
+        else if (GetAreaWithGeronFormula() != 0) return GetAreaWithGeronFormula();
+        else if (GetAreaWithHeightFormula() != 0) return GetAreaWithHeightFormula();
+        return 0;
+    }
 
-        protected double _firstAngle;
-        protected double _secondAngle;
-        protected double _thirdAngle;
-
-        public Triangle(double firstSide = 0, double secondSide = 0, double thirdSide = 0, double firstHeight = 0, double secondHeight = 0, double thirdHeight = 0, byte firstAngle = 0, byte secondAngle = 0, byte thirdAngle = 0)
+    private double GetAreaWithGeronFormula()
+    {
+        //S = sqrt(p * (p - a) * (p - b) * (p - c), where p - half of P(perimeter) 
+        //if all sides length not equal 0 - solve
+        if (_sides.All(s => s.Length != 0))
         {
-            _firstSide = firstSide;
-            _secondSide = secondSide;
-            _thirdSide = thirdSide;
+            double halfOfPerimeter = _sides.Sum(s => s.Length) / 2;
 
-            _firstHeight = firstHeight;
-            _secondHeight = secondHeight;
-            _thirdHeight = thirdHeight;
-
-            _firstAngle = Angle.ConvertDegreesToRadians(firstAngle);
-            _secondAngle = Angle.ConvertDegreesToRadians(secondAngle);
-            _thirdAngle = Angle.ConvertDegreesToRadians(thirdAngle);
+            return Math.Sqrt(halfOfPerimeter * (halfOfPerimeter - _sides[0].Length) * (halfOfPerimeter - _sides[1].Length) * (halfOfPerimeter - _sides[2].Length));
         }
 
-        public double GetArea()
-        {
-            if (GetAreaWithSinFormula() != 0) return GetAreaWithSinFormula();
-            else if (GetAreaWithGeronFormula() != 0) return GetAreaWithGeronFormula();
-            else if (GetAreaWithHeightFormula() != 0) return GetAreaWithHeightFormula();
-            return 0;
-        }
+        return 0;
+    }
 
-        private double GetAreaWithGeronFormula()
-        {
-            if (_firstSide != 0 && _secondSide != 0 && _thirdSide != 0)
-            {
-                double halfOfPerimeter = (_firstSide + _secondSide + _thirdSide) / 2;
+    private double GetAreaWithHeightFormula()
+    {
+        //S = 0.5 * a * h(a)
+        if (_sides[0].Length != 0 && _heights[0].Length != 0) return 0.5 * _heights[0].Length * _sides[0].Length;
+        else if (_sides[1].Length != 0 && _heights[1].Length != 0) return 0.5 * _heights[1].Length * _sides[1].Length;
+        else if (_sides[2].Length != 0 && _heights[2].Length != 0) return 0.5 * _heights[2].Length * _sides[2].Length;
+        return 0;
+    }
 
-                return Math.Sqrt(halfOfPerimeter * (halfOfPerimeter - _firstSide) * (halfOfPerimeter - _secondSide) * (halfOfPerimeter - _thirdSide));
-            }
-            return 0;
-        }
-
-        private double GetAreaWithHeightFormula()
-        {
-            if (_firstSide != 0 && _firstHeight != 0) return 0.5 * _firstHeight * _firstSide;
-            else if (_secondSide != 0 && _secondHeight != 0) return 0.5 * _secondHeight * _secondSide;
-            else if (_thirdSide != 0 && _thirdHeight != 0) return 0.5 * _thirdHeight * _thirdSide;
-            return 0;
-        }
-
-        private double GetAreaWithSinFormula()
-        {
-            if (_firstSide != 0 && _secondSide != 0 && _thirdAngle != 0) return 0.5 * _firstSide * _secondSide * Math.Sin(_thirdAngle);
-            else if (_secondSide != 0 && _thirdSide != 0 && _firstAngle != 0) return 0.5 * _secondSide * _thirdSide * Math.Sin(_firstAngle);
-            else if (_firstSide != 0 && _thirdSide != 0 && _secondAngle != 0) return 0.5 * _secondSide * _thirdSide * Math.Sin(_secondAngle);
-            return 0;
-        }      
+    private double GetAreaWithSinFormula()
+    {
+        //S = 0.5 * a * b * sin(<(A;B))
+        if (_sides[0].Length != 0 && _sides[1].Length != 0 && _angles[2].Radians != 0) return 0.5 * _sides[0].Length * _sides[1].Length * Math.Sin(_angles[2].Radians);
+        else if (_sides[1].Length != 0 && _sides[2].Length != 0 && _angles[0].Radians != 0) return 0.5 * _sides[1].Length * _sides[2].Length * Math.Sin(_angles[0].Radians);
+        else if (_sides[0].Length != 0 && _sides[2].Length != 0 && _angles[1].Radians != 0) return 0.5 * _sides[1].Length * _sides[2].Length * Math.Sin(_angles[1].Radians);
+        return 0;
     }
 }

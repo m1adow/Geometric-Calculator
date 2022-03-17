@@ -1,7 +1,7 @@
 ﻿@page
-@model Geometric_Calculator.Pages.Triangles.RightTriangleModel
+@model Geometric_Calculator.Pages.Quadrangles.ParallelogramModel
 @{
-    ViewData["Title"] = "Right Triangle";
+    ViewData["Title"] = "Parallelogram";
 }
 
 <div class="text-center">
@@ -25,14 +25,11 @@
         </tr>
         <br />
         <tr>
-            <td>Side "c": </td>
-            <td><input type="text" value="0" name="SideC" /></td>
-            <td>Height "c": </td>
-            <td><input type="text" value="0" name="HeightC" /></td>
-            <td>Angle "c": </td>
-            <td><b>ALWAYS 90 DEGREES</b></td>
+            <td>Diagonal "a": </td>
+            <td><input type="text" value="0" name="DiagonalA"></td>
+            <td>Diagonal "b": </td>
+            <td><input type="text" value="0" name="DiagonalB"></td>
         </tr>
-        <br />
         <input type="submit" value="Get area" />
     </form>
     <p>@Model.Message</p>
