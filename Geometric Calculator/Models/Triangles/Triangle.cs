@@ -8,7 +8,7 @@ public class Triangle
     protected Angle[] _angles;
     protected Height[] _heights;
 
-    public Triangle(double firstSide = 0, double secondSide = 0, double thirdSide = 0, double firstHeight = 0, double secondHeight = 0, double thirdHeight = 0, byte firstAngle = 0, byte secondAngle = 0, byte thirdAngle = 0)
+    public Triangle(double firstSide, double secondSide, double thirdSide, double firstHeight, double secondHeight, double thirdHeight, byte firstAngle, byte secondAngle, byte thirdAngle)
     {
         _sides = new Side[3] { new Side(firstSide), new Side(secondSide), new Side(thirdSide) }; //initiate array with sides
         _angles = new Angle[3] { new Angle(0, firstAngle), new Angle(0, secondAngle), new Angle(0, thirdAngle) }; //initiate array with angles in degrees

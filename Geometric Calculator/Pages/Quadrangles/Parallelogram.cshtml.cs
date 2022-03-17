@@ -8,9 +8,9 @@ namespace Geometric_Calculator.Pages.Quadrangles
     {
         public string? Message { get; private set; }
 
-        public void OnPost(double firstAndThirdSide = 0, double secondAndFourthSide = 0, double firstDiagonal = 0, double secondDiagonal = 0, double firstAndThirdHeight = 0, double secondAndFourthHeight = 0, double firstAndThirdAngle = 0, double secondAndFourthAngle = 0)
+        public void OnPost(double firstAndThirdSide, double secondAndFourthSide, double firstDiagonal, double secondDiagonal, double firstAndThirdHeight, double secondAndFourthHeight, double firstAndThirdAngle, double secondAndFourthAngle, double angleBetweenDiagonals)
         {
-            Parallelogram parallelogram = new(firstAndThirdSide, secondAndFourthSide, firstDiagonal, secondDiagonal, firstAndThirdHeight, secondAndFourthHeight, firstAndThirdAngle, secondAndFourthAngle);
+            Parallelogram parallelogram = new(firstAndThirdSide, secondAndFourthSide, firstDiagonal, secondDiagonal, firstAndThirdHeight, secondAndFourthHeight, firstAndThirdAngle, secondAndFourthAngle, angleBetweenDiagonals);
 
             Message = parallelogram.GetArea().ToString();
         }
