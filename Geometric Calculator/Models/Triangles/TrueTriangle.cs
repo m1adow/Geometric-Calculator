@@ -12,9 +12,9 @@
             this._secondHeight = secondHeight;
             this._thirdHeight = thirdHeight;
 
-            this._firstAngle = 60 * Math.PI / 180;
-            this._secondAngle = 60 * Math.PI / 180;
-            this._thirdAngle = 60 * Math.PI / 180;
+            this._firstAngle = Angle.ConvertDegreesToRadians(60);
+            this._secondAngle = this._firstAngle;
+            this._thirdAngle = this._secondAngle;
         }
     }
 }

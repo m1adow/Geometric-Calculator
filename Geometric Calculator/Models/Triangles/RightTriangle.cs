@@ -12,11 +12,11 @@
             this._secondHeight = secondHeight;
             this._thirdHeight = thirdHeight;
 
-            this._firstAngle = firstAngle * Math.PI / 180;
-            this._secondAngle = secondAngle * Math.PI / 180;
-            this._thirdAngle = 90 * Math.PI / 180;
+            this._firstAngle = Angle.ConvertDegreesToRadians(firstAngle);
+            this._secondAngle = Angle.ConvertDegreesToRadians(secondAngle);
+            this._thirdAngle = Angle.ConvertDegreesToRadians(90);
 
-            GetThirdSideWithPythagoreanTheorem();
+            GetThirdSideWithPythagoreanTheorem(); //if two of free sides known find next one
         }
 
         private void GetThirdSideWithPythagoreanTheorem()

@@ -24,9 +24,9 @@
             _secondHeight = secondHeight;
             _thirdHeight = thirdHeight;
 
-            _firstAngle = firstAngle * Math.PI / 180;
-            _secondAngle = secondAngle * Math.PI / 180;
-            _thirdAngle = thirdAngle * Math.PI / 180;
+            _firstAngle = Angle.ConvertDegreesToRadians(firstAngle);
+            _secondAngle = Angle.ConvertDegreesToRadians(secondAngle);
+            _thirdAngle = Angle.ConvertDegreesToRadians(thirdAngle);
         }
 
         public double GetArea()
