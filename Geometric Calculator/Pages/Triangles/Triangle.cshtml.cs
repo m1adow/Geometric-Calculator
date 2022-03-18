@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Geometric_Calculator.Models.Triangles;
 
-namespace Geometric_Calculator.Pages
+namespace Geometric_Calculator.Pages.Triangles
 {
     public class TriangleModel : PageModel
     {

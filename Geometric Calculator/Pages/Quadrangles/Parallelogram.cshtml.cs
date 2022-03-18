@@ -8,11 +8,11 @@ namespace Geometric_Calculator.Pages.Quadrangles
     {
         public string? Message { get; private set; }
 
-        public void OnPost(double firstAndThirdSide, double secondAndFourthSide, double firstDiagonal, double secondDiagonal, double firstAndThirdHeight, double secondAndFourthHeight, double firstAndThirdAngle, double secondAndFourthAngle, double angleBetweenDiagonals)
+        public void OnPost(double sideA, double sideB, double diagonalA, double diagonalB, double heightA, double heightB, double angleA, double angleB, double angleBetweenDiagonals)
         {
-            Parallelogram parallelogram = new(firstAndThirdSide, secondAndFourthSide, firstDiagonal, secondDiagonal, firstAndThirdHeight, secondAndFourthHeight, firstAndThirdAngle, secondAndFourthAngle, angleBetweenDiagonals);
+            Parallelogram parallelogram = new(sideA, sideB, diagonalA, diagonalB, heightA, heightB, angleA, angleB, angleBetweenDiagonals);
 
-            Message = parallelogram.GetArea().ToString();
+            Message = $"Area = '{parallelogram.GetArea()}'";
         }
     }
 }

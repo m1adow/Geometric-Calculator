@@ -1,0 +1,30 @@
+﻿@page
+@model Geometric_Calculator.Pages.Quadrangles.RectangleModel
+@{
+    ViewData["Title"] = "Rectangle";
+}
+
+<div class="text-center">
+    <form method="post">
+        <tr>
+            <td>Side 'a': </td>
+            <td><input type="text" value="0" name="SideA" /></td>
+            <td>Side 'b': </td>
+            <td><input type="text" value="0" name="SideB" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Diagonal: </td>
+            <td><input type="text" value="0" name="Diagonal" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Angle between diagonals: </td>
+            <td><input type="text" value="0" name="AngleBetweenDiagonals" /></td>
+        </tr>
+        <br />
+        <input type="submit" value="Get area" />
+    </form>
+    <br />
+    <p>@Model.Message</p>
+</div>

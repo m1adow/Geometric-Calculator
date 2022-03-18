@@ -1,0 +1,23 @@
+﻿@page
+@model Geometric_Calculator.Pages.Quadrangles.SquareModel
+@{
+    ViewData["Title"] = "Square";
+}
+
+<div class="text-center">
+    <form method="post">
+        <tr>
+            <td>Side: </td>
+            <td><input type="text" value="0" name="Side" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Diagonal: </td>
+            <td><input type="text" value="0" name="Diagonal" /></td>
+        </tr>
+        <br />
+        <input type="submit" value="Get area" />
+    </form>
+    <br />
+    <p>@Model.Message</p>
+</div>

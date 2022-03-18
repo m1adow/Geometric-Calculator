@@ -19,9 +19,9 @@ namespace Geometric_Calculator.Models.Quadrangles
 
         public double GetArea()
         {
-            if (GetAreaWithHeightFormula() != 0) return GetAreaWithHeightFormula();
-            else if (GetAreaWithSinFormula() != 0) return GetAreaWithSinFormula();
+            if (GetAreaWithSinFormula() != 0) return GetAreaWithSinFormula();
             else if (GetAreaWithDiagonalFormula() != 0) return GetAreaWithDiagonalFormula();
+            else if (GetAreaWithHeightFormula() != 0) return GetAreaWithHeightFormula();
             return 0;
         }
 
