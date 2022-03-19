@@ -1,0 +1,39 @@
+﻿@page
+@model Geometric_Calculator.Pages.Quadrangles.RhombusModel
+@{    
+    ViewData["Title"] = "Rhombus";
+}
+
+<div class="text-center">
+    <form method="post">
+        <tr>
+            <td>Side: </td>
+            <td><input type="text" value="0" name="Side" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Diagonal 'a': </td>
+            <td><input type="text" value="0" name="DiagonalA" /></td>
+            <td>Diagonal 'b': </td>
+            <td><input type="text" value="0" name="DiagonalB" /></td>
+        </tr>
+        <br />
+         <tr>
+            <td>Height 'a': </td>
+            <td><input type="text" value="0" name="HeightA" /></td>
+            <td>Height 'b': </td>
+            <td><input type="text" value="0" name="HeightB" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Angle 'a': </td>
+            <td><input type="text" value="0" name="AngleA" /></td>
+            <td>Angle 'b': </td>
+            <td><input type="text" value="0" name="AngleB" /></td>
+        </tr>
+        <br />
+        <input type="submit" value="Get area" />
+    </form>
+    <br />
+    <p>@Model.Message</p>
+</div>
