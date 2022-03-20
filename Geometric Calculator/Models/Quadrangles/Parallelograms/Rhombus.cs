@@ -1,4 +1,5 @@
-﻿namespace Geometric_Calculator.Models.Quadrangles;
+﻿namespace Geometric_Calculator.Models.Quadrangles.Parallelograms;
+
 
 public class Rhombus : Parallelogram
 {

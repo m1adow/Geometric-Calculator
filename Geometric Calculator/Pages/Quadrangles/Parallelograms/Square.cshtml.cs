@@ -1,8 +1,8 @@
-using Geometric_Calculator.Models.Quadrangles;
+using Geometric_Calculator.Models.Quadrangles.Parallelograms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Geometric_Calculator.Pages.Quadrangles
+namespace Geometric_Calculator.Pages.Quadrangles.Parallelograms
 {
     public class SquareModel : PageModel
     {
