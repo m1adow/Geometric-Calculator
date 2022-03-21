@@ -68,8 +68,9 @@ public class Triangle
 
             foreach (var angle in angles) thirdAngle -= angle.Degrees;
 
-            _angles.FirstOrDefault(a => a.Radians == 0).Degrees = thirdAngle;
-            _angles.FirstOrDefault(a => a.Radians == 0).ConvertDegreesToRadians();
+            Angle desiredAngle = _angles.FirstOrDefault(a => a.Radians == 0); //take empty angle
+            desiredAngle.Degrees = thirdAngle;
+            desiredAngle.ConvertDegreesToRadians();
         }
     }
 }
