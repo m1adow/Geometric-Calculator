@@ -2,8 +2,8 @@
 
 public class Angle
 {
-    public double Radians { get; private set; }
-    public double Degrees { get; private set; }
+    public double Radians { get; set; }
+    public double Degrees { get; set; }
 
     public Angle(double radians = 0, double degrees = 0)
     {

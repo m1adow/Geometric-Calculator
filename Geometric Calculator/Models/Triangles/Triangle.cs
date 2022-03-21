@@ -13,6 +13,8 @@ public class Triangle
         _sides = new Side[3] { new Side(firstSide), new Side(secondSide), new Side(thirdSide) }; //initiate array with sides
         _angles = new Angle[3] { new Angle(0, firstAngle), new Angle(0, secondAngle), new Angle(0, thirdAngle) }; //initiate array with angles in degrees
         _heights = new Height[3] { new Height(firstHeight), new Height(secondHeight), new Height(thirdHeight) }; //initiate array with heights
+
+        FindAngles(); //find all angles if it's possible
     }
 
     public double GetArea()
@@ -53,5 +55,21 @@ public class Triangle
         else if (_sides[1].Length != 0 && _sides[2].Length != 0 && _angles[0].Radians != 0) return 0.5 * _sides[1].Length * _sides[2].Length * Math.Sin(_angles[0].Radians);
         else if (_sides[0].Length != 0 && _sides[2].Length != 0 && _angles[1].Radians != 0) return 0.5 * _sides[1].Length * _sides[2].Length * Math.Sin(_angles[1].Radians);
         return 0;
+    }
+
+    private void FindAngles()
+    {
+        double thirdAngle = 180; //declare variable for result with start value of sum of angles in triangle
+
+        //examination for containing 2 angles
+        if (_angles.Where(a => a.Radians != 0).Count() == 2)
+        {
+            var angles = _angles.Where(a => a.Radians != 0);
+
+            foreach (var angle in angles) thirdAngle -= angle.Degrees;
+
+            _angles.FirstOrDefault(a => a.Radians == 0).Degrees = thirdAngle;
+            _angles.FirstOrDefault(a => a.Radians == 0).ConvertDegreesToRadians();
+        }
     }
 }
