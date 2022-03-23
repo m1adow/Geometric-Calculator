@@ -64,11 +64,11 @@ public class Triangle
         //examination for containing 2 angles
         if (_angles.Where(a => a.Radians != 0).Count() == 2)
         {
-            var angles = _angles.Where(a => a.Radians != 0);
+            var angles = _angles.Where(a => a.Radians != 0); //take all filled angles
 
-            foreach (var angle in angles) thirdAngle -= angle.Degrees;
+            foreach (var angle in angles) thirdAngle -= angle.Degrees; //subtract degree values from angles
 
-            Angle desiredAngle = _angles.FirstOrDefault(a => a.Radians == 0); //take empty angle
+            Angle? desiredAngle = _angles.FirstOrDefault(a => a.Radians == 0); //take empty angle
             desiredAngle.Degrees = thirdAngle;
             desiredAngle.ConvertDegreesToRadians();
         }
