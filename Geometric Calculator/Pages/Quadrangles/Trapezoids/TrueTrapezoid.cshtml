@@ -1,0 +1,41 @@
+﻿@page
+@model Geometric_Calculator.Pages.Quadrangles.Trapezoids.TrueTrapezoidModel
+@{
+    ViewData["Title"] = "True Triangle";
+}
+
+<div class="text-center">
+    <form method="post">
+        <tr>
+            <td>Small warp: </td>
+            <td><input type="text" value="0" name="SmallWarp" /></td>
+            <td>Big warp: </td>
+            <td><input type="text" value="0" name="BigWarp" /></td>
+            <td>Side: </td>
+            <td><input type="text" value="0" name="Side" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Angle 'a': </td>
+            <td><input type="text" value="0" name="AngleA" /></td>
+            <td>Angle 'b': </td>
+            <td><input type="text" value="0" name="AngleB" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Diagonal: </td>
+            <td><input type="text" value="0" name="Diagonal" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Height "a": </td>
+            <td><input type="text" value="0" name="HeightA" /></td>
+            <td>Height "b": </td>
+            <td><input type="text" value="0" name="HeightB" /></td>
+        </tr>
+        <br />
+
+        <input type="submit" value="Get area" />
+    </form>
+    <p>@Model.Message</p>
+</div>

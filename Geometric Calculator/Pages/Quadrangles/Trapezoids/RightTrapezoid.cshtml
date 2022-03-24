@@ -1,0 +1,49 @@
+﻿@page
+@model Geometric_Calculator.Pages.Quadrangles.Trapezoids.RightTrapezoidModel
+@{
+    ViewData["Title"] = "Right Trapezoid";
+}
+
+<div class="text-center">
+    <form method="post">
+        <tr>
+            <td>Small warp: </td>
+            <td><input type="text" value="0" name="SmallWarp" /></td>
+            <td>Big warp: </td>
+            <td><input type="text" value="0" name="BigWarp" /></td>
+            <td>Side 'a': </td>
+            <td><input type="text" value="0" name="SideA" /></td>
+            <td>Side 'b': </td>
+            <td><input type="text" value="0" name="SideB" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Angle 'c': </td>
+            <td><input type="text" value="0" name="AngleC" /></td>
+            <td>Angle "d": </td>
+            <td><input type="text" value="0" name="AngleD" /></td>
+            <td><b>Angle 'a' and 'b' are always 90 degrees</b></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Diagonal 'a': </td>
+            <td><input type="text" value="0" name="DiagonalA" /></td>
+            <td>Diagonal 'b': </td>
+            <td><input type="text" value="0" name="DiagonalB" /></td>
+        </tr>
+        <br />
+        <tr>
+            <td>Height 'a': </td>
+            <td><input type="text" value="0" name="HeightA" /></td>
+            <td>Height 'b': </td>
+            <td><input type="text" value="0" name="HeightB" /></td>
+            <td>Height 'c': </td>
+            <td><input type="text" value="0" name="HeightC" /></td>
+            <td>Height 'd': </td>
+            <td><input type="text" value="0" name="HeightD" /></td>
+        </tr>
+        <br />
+        <input type="submit" value="Get area" />
+    </form>
+    <p>@Model.Message</p>
+</div>
