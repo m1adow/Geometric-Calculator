@@ -1,6 +1,5 @@
 using Geometric_Calculator.Models;
 using Geometric_Calculator.Models.Quadrangles.Parallelograms;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Geometric_Calculator.Pages.Quadrangles.Parallelograms
