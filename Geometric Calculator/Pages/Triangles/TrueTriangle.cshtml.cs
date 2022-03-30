@@ -1,5 +1,5 @@
+using Geometric_Calculator.Models;
 using Geometric_Calculator.Models.Triangles;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Geometric_Calculator.Pages.Triangles
@@ -8,11 +8,20 @@ namespace Geometric_Calculator.Pages.Triangles
     {
         public string? Message { get; private set; }
 
-        public void OnPost(double side, double heightA, double heightB, double heightC)
+        public void OnPost(string side, string heightA, string heightB, string heightC)
         {
-            TrueTriangle trueTriangle = new(side, heightA, heightB, heightC);
+            try
+            {
+                double[] values = Settings.GetValues(new string[] { side, heightA, heightB, heightC });
 
-            Message = $"Area = '{trueTriangle.GetArea()}'";
+                TrueTriangle trueTriangle = new(values[0], values[1], values[2], values[3]);
+
+                Message = $"Area = '{trueTriangle.GetArea()}'";
+            }
+            catch (Exception exc)
+            {
+                Message = exc.Message;
+            }
         }
     }
 }
