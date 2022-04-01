@@ -40,7 +40,8 @@ public class Settings
 
                 while (splitedValuesWithActions.Any(s => actions.Contains(s)))
                 {
-                    var containingActions = actions.Where(a => splitedValuesWithActions.Any(s => s == a)); //find action chars which string has
+                    var containingActions = actions.Where(a => splitedValuesWithActions.Any(s => s == a)).ToList(); //find action chars which string has
+                    ActionSort(containingActions); //sort by action
 
                     containingActions.ToList().ForEach(x => Console.WriteLine(x));
 
@@ -72,5 +73,30 @@ public class Settings
     {
         array[index] = '\0';
         array[index + 1] = '\0';
+    }
+
+    private static void ActionSort(List<char>? actions)
+    {
+        //sort array with preferable action
+        for (int i = 0; i < actions?.Count; i++)
+        {
+            if (actions[i] == '*') ChangePosition(actions, i, actions[i]);
+            else if (actions[i] == '/') ChangePosition(actions, i, actions[i]);
+        }
+    }
+
+    private static void ChangePosition(List<char>? actions, int index, char action)
+    {
+        //examination for availability of preferable action at first place 
+        if (actions[0] == '*' || actions[0] == '/')
+        {
+            actions[index] = actions[1];
+            actions[1] = action;
+
+            return;
+        }
+
+        actions[index] = actions[0];
+        actions[0] = action;
     }
 }
