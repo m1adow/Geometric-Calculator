@@ -1,5 +1,5 @@
+using Geometric_Calculator.Models;
 using Geometric_Calculator.Models.Quadrangles.Parallelograms;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Geometric_Calculator.Pages.Quadrangles.Parallelograms
@@ -8,11 +8,20 @@ namespace Geometric_Calculator.Pages.Quadrangles.Parallelograms
     {
         public string? Message { get; private set; }
 
-        public void OnPost(double sideA, double sideB, double diagonal, double angleBetweenDiagonals)
+        public void OnPost(string sideA, string sideB, string diagonal, string angleBetweenDiagonals)
         {
-            Rectangle rectangle = new(sideA, sideB, diagonal, angleBetweenDiagonals);
+            try
+            {
+                double[] values = Settings.GetValues(new string[] { sideA, sideB, diagonal, angleBetweenDiagonals });
 
-            Message=$"Area = '{rectangle.GetArea()}'";
+                Rectangle rectangle = new(values[0], values[1], values[1], values[3]);
+
+                Message = $"Area = '{rectangle.GetArea()}'";
+            }
+            catch (Exception exc)
+            {
+                Message = exc.Message;
+            }
         }
     }
 }
