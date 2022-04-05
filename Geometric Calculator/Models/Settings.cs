@@ -41,8 +41,8 @@ public class Settings
 
                         if (containingActions[j] == "+") splitedValuesWithActions[indexOfSplitedValueWithAction] = (double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction - 1].ToString()) + double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction + 1].ToString())).ToString();
                         else if (containingActions[j] == "-") splitedValuesWithActions[indexOfSplitedValueWithAction] = (double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction - 1].ToString()) - double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction + 1].ToString())).ToString();
-                        //else if (containingActions[j] == '*') splitedValuesWithActions[j - 1] = Convert.ToChar(double.Parse(splitedValuesWithActions[j - 1].ToString()) * double.Parse(splitedValuesWithActions[j + 1].ToString()));
-                        //else if (containingActions[j] == '/') splitedValuesWithActions[j - 1] = Convert.ToChar(double.Parse(splitedValuesWithActions[j - 1].ToString()) / double.Parse(splitedValuesWithActions[j + 1].ToString()));
+                        else if (containingActions[j] == "*") splitedValuesWithActions[indexOfSplitedValueWithAction] = (double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction - 1].ToString()) * double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction + 1].ToString())).ToString();
+                        else if (containingActions[j] == "/") splitedValuesWithActions[indexOfSplitedValueWithAction] = (double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction - 1].ToString()) / double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction + 1].ToString())).ToString();
 
                         ClearArrayAfterAction(splitedValuesWithActions, indexOfSplitedValueWithAction); //clear unnecessary elements
                         splitedValuesWithActions.ToList().ForEach(x => Console.WriteLine(x));
