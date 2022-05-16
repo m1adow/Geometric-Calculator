@@ -46,7 +46,7 @@ namespace GeometricCalculatorNUnitTests
             Triangle triangle = new(firstSide, 0, 0, firstHeight, 0, 0, 0, 0, 0);
 
             //0.5 * 5 * 10
-            Assert.AreEqual(0.5 * 5 * 10, triangle.GetArea());
+            Assert.That(triangle.GetArea(), Is.EqualTo(0.5 * 5 * 10));
         }
     }
 }
