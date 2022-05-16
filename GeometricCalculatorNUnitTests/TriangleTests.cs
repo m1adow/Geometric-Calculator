@@ -34,7 +34,7 @@ namespace GeometricCalculatorNUnitTests
 
             //(9 + 5 + 6) / 2 = 10
             //sqrt(10(10-9)(10-5)(10-6))
-            Assert.AreEqual(Math.Sqrt(10 * (10 - 9) * (10 - 5) * (10 - 6)), triangle.GetArea());
+            Assert.That(triangle.GetArea(), Is.EqualTo(Math.Sqrt(10 * (10 - 9) * (10 - 5) * (10 - 6))));
         }
 
         [Test]
