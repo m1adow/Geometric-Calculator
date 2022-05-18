@@ -32,6 +32,8 @@ public class Settings
                 List<string> containingActions = actions.Where(a => valuesWithActions[i].Any(c => c.ToString() == a)).ToList(); //find action chars which string has
                 ActionSort(containingActions); //sort by action
 
+                int indexOfCurrentValue = Array.IndexOf(values, valuesWithActions[i]); //index of current value in string array
+
                 //solve expression while it has action signs
                 while (splitedValuesWithActions.Any(c => actions.Contains(c.ToString())))
                 {
@@ -48,7 +50,7 @@ public class Settings
                     }
                 }
 
-                values[i] = splitedValuesWithActions.FirstOrDefault(s => s != string.Empty);
+                values[indexOfCurrentValue] = splitedValuesWithActions.FirstOrDefault(s => s != string.Empty);
             }
         }
 
@@ -68,17 +70,20 @@ public class Settings
         collection.RemoveAll(s => s == string.Empty); //clear all elements where string is empty
     }
 
-    private static void ActionSort(List<string>? actions)
+    private static void ActionSort(List<string> actions)
     {
         //sort array with preferable action
-        for (int i = 0; i < actions?.Count; i++)
+        if (actions.Count > 1)
         {
-            if (actions[i] == "*") ChangePosition(actions, i, actions[i]);
-            else if (actions[i] == "/") ChangePosition(actions, i, actions[i]);
+            for (int i = 0; i < actions.Count; i++)
+            {
+                if (actions[i] == "*") ChangePosition(actions, i, actions[i]);
+                else if (actions[i] == "/") ChangePosition(actions, i, actions[i]);
+            }
         }
     }
 
-    private static void ChangePosition(List<string>? actions, int index, string action)
+    private static void ChangePosition(List<string> actions, int index, string action)
     {
         //examination for availability of preferable action at first place 
         if (actions[0] == "*" || actions[0] == "/")
@@ -97,7 +102,7 @@ public class Settings
     {
         List<string> result = new();
         string tempValue = string.Empty;
-        value.Trim(' ');
+        _ = value.Trim(' ');
 
         for (int i = 0; i < value.Length; i++)
         {

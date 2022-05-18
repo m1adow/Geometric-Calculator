@@ -19,10 +19,11 @@ public class Parallelogram
 
     public double GetArea()
     {
-        if (GetAreaWithSinFormula() != 0) return GetAreaWithSinFormula();
-        else if (GetAreaWithDiagonalFormula() != 0) return GetAreaWithDiagonalFormula();
-        else if (GetAreaWithHeightFormula() != 0) return GetAreaWithHeightFormula();
-        return 0;
+        if (GetAreaWithSinFormula() > 0) return GetAreaWithSinFormula();
+        else if (GetAreaWithDiagonalFormula() > 0) return GetAreaWithDiagonalFormula();
+        else if (GetAreaWithHeightFormula() > 0) return GetAreaWithHeightFormula();
+
+        throw new Exception("Area can't be less or equal to 0");
     }
 
     private double GetAreaWithHeightFormula()

@@ -19,8 +19,9 @@ public class Trapezoid
 
     public double GetArea()
     {
-        if (GetAreaWithMiddleLineFormula() != 0) return GetAreaWithMiddleLineFormula();
-        return 0;
+        if (GetAreaWithMiddleLineFormula() > 0) return GetAreaWithMiddleLineFormula();
+
+        throw new Exception("Area can't be less or equal to 0");
     }
 
     public double GetAreaWithMiddleLineFormula()
