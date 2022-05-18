@@ -28,8 +28,8 @@ public class Settings
 
             for (int i = 0; i < valuesWithActions.Count; i++)
             {
-                List<string> splitedValuesWithActions = valuesWithActions[i].Trim(' ').Select(x => new string(x, 1)).ToList(); //split string with action
-                List<string>? containingActions = actions.Where(a => valuesWithActions[i].Any(c => c.ToString() == a)).ToList(); //find action chars which string has
+                List<string> splitedValuesWithActions = SplitValuesWithActions(valuesWithActions[i], actions); //split string with action
+                List<string> containingActions = actions.Where(a => valuesWithActions[i].Any(c => c.ToString() == a)).ToList(); //find action chars which string has
                 ActionSort(containingActions); //sort by action
 
                 //solve expression while it has action signs
@@ -45,7 +45,6 @@ public class Settings
                         else if (containingActions[j] == "/") splitedValuesWithActions[indexOfSplitedValueWithAction] = (double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction - 1].ToString()) / double.Parse(splitedValuesWithActions[indexOfSplitedValueWithAction + 1].ToString())).ToString();
 
                         ClearArrayAfterAction(splitedValuesWithActions, indexOfSplitedValueWithAction); //clear unnecessary elements
-                        splitedValuesWithActions.ToList().ForEach(x => Console.WriteLine(x));
                     }
                 }
 
@@ -92,5 +91,28 @@ public class Settings
 
         actions[index] = actions[0];
         actions[0] = action;
+    }
+
+    private static List<string> SplitValuesWithActions(string value, string[] actions)
+    {
+        List<string> result = new();
+        string tempValue = string.Empty;
+        value.Trim(' ');
+
+        for (int i = 0; i < value.Length; i++)
+        {
+            if (actions.All(a => a != value[i].ToString()))
+                tempValue += value[i].ToString(); //add in temporary string char if it is not action 
+            else
+            {
+                result.Add(tempValue); //add temporary string in list
+                tempValue = string.Empty;
+                result.Add(value[i].ToString());
+            }
+        }
+
+        result.Add(tempValue);
+
+        return result;
     }
 }

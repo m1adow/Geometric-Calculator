@@ -1,8 +1,9 @@
+using Geometric_Calculator.Models;
 using Geometric_Calculator.Models.Triangles;
 
 namespace GeometricCalculatorNUnitTests
 {
-    public class Tests
+    public class TriangleTests
     {
         [SetUp]
         public void Setup()
@@ -48,5 +49,16 @@ namespace GeometricCalculatorNUnitTests
             //0.5 * 5 * 10
             Assert.That(triangle.GetArea(), Is.EqualTo(0.5 * 5 * 10));
         }
+
+        [Test]
+        public void TestDefaultTriangleWithHeightFormulaAndSimpleCalcProblem()
+        {
+            double[] values = Settings.GetValues(new string[] { "2+2", "3*2" });
+
+            Triangle triangle = new(values[0], 0, 0, values[1], 0, 0, 0, 0, 0);
+
+            //0.5 * 4 * 6
+            Assert.That(triangle.GetArea(), Is.EqualTo(0.5 * 4 * 6));
+        }      
     }
 }

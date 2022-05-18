@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Geometric_Calculator.Models.Triangles;
 using Geometric_Calculator.Models;
